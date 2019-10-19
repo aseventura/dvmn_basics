@@ -1,8 +1,6 @@
 import os
-from pytimeparse import parse
-
 import ptbot
-
+from pytimeparse import parse
 
 def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='█', zfill='░') -> str():
     iteration = min(total, iteration)
