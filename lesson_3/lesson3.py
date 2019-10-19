@@ -21,20 +21,20 @@ template_message = """Привет, %friend_name%! %my_name% приглашае�
 personal_message = template_message.replace('%friend_name%', 'Ярослав')\
     .replace('%my_name%', 'Евгений').replace('%website%', 'dvmn.org')
 
-from_addr = 'yaroslav.dvmn1@yandex.ru'
-to_addr = 'scrat.93@mail.ru'
+from_addr = os.getenv('FROM_ADDRESS')
+to_addr = os.getenv('TO_ADRESS')
 
 mail = """From: {from_addr} 
 To: {to_addr}
 Subject: Ревью!
 Content-Type: text/plain; charset="UTF-8";
 
-{msg}""".format(from_addr = from_addr, to_addr = to_addr, msg = personal_message)\
+{msg}""".format(from_addr=from_addr, to_addr=to_addr, msg=personal_message)\
     .encode('UTF-8')
 
 server = smtplib.SMTP_SSL('smtp.yandex.ru:465')
-login = os.getenv('login')
-password = os.getenv('password')
+login = os.getenv('LOGIN')
+password = os.getenv('PASSWORD')
 server.login(login, password)
 server.sendmail(from_addr, to_addr, mail)
 server.quit()
