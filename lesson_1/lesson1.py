@@ -332,3 +332,5 @@ ascii_planets = (
 for planet in ascii_planets:
   print(planet)
   sleep(1)
+
+print('\u001b[0mThe End')
