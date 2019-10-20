@@ -22,7 +22,7 @@ personal_message = template_message.replace('%friend_name%', 'Ярослав')\
     .replace('%my_name%', 'Евгений').replace('%website%', 'dvmn.org')
 
 from_addr = os.getenv('FROM_ADDRESS')
-to_addr = os.getenv('TO_ADRESS')
+to_addr = os.getenv('TO_ADDRESS')
 
 mail = """From: {from_addr} 
 To: {to_addr}
